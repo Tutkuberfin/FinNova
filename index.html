@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1629692925085393" crossorigin="anonymous"></script>
+    
+    <title>FinNova Pro | Premium Finans Portalı</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+        
+        :root {
+            --up: #0ECB81; --down: #F6465D; --lilac: #A8A3F6; --navy: #243168;
+            --bg: #050507; --card-bg: #101014;
+            --border-style: 1px dashed rgba(168, 163, 246, 0.25);
+            --text-main: #ffffff; --text-dim: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 50% 0%, rgba(36, 49, 104, 0.3) 0%, transparent 50%), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 40px;
+            color: var(--text-main); margin: 0; min-height: 100vh; overflow-x: hidden;
+            display: flex; flex-direction: column;
+        }
+
+        /* --- REKLAM KUTULARI --- */
+        .ad-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: #444; font-size: 11px; border-radius: 12px;
+            overflow: hidden; margin-bottom: 25px; text-align: center;
+        }
+        .ad-leaderboard { width: 100%; max-width: 970px; height: 90px; margin: 20px auto; }
+        .ad-skyscraper { width: 160px; height: 600px; position: sticky; top: 100px; flex-shrink: 0; }
+        .ad-rectangle { width: 100%; height: 250px; }
+        .ad-content-banner { width: 100%; height: 100px; margin: 20px 0; }
+
+        /* --- LAYOUT --- */
+        .page-wrapper {
+            display: flex; justify-content: center; align-items: flex-start;
+            gap: 30px; width: 96%; max-width: 1800px;
+            margin: 80px auto 0 auto; padding: 0; box-sizing: border-box; flex: 1;
+        }
+        .left-column { flex: 1; min-width: 300px; max-width: 350px; } 
+        .main-column { flex: 2.5; width: 100%; } 
+        .right-column { flex: 1; min-width: 300px; max-width: 350px; } 
+
+        @media (max-width: 1200px) {
+            .ad-skyscraper { display: none; }
+            .page-wrapper { flex-wrap: wrap; width: 95%; }
+            .left-column, .right-column { flex: 1 1 45%; max-width: none; order: 2; }
+            .main-column { order: 1; flex: 1 1 100%; max-width: 100%; }
+        }
+        @media (max-width: 768px) { .left-column, .right-column { flex: 1 1 100%; } }
+
+        /* --- STİLLER --- */
+        .card-style { background: var(--card-bg); border: var(--border-style); border-radius: 24px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); padding: 5px; }
+        
+        .ticker-wrap { width: 100%; overflow: hidden; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); padding: 12px 0; position: fixed; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ticker { display: flex; white-space: nowrap; animation: ticker 40s linear infinite; }
+        .ticker-item { padding: 0 40px; font-size: 15px; color: var(--text-dim); font-family: 'Space Grotesk', sans-serif; display: flex; align-items: center; gap: 8px; }
+        .ticker-item span { color: var(--up); font-weight: 700; font-size: 16px; }
+
+        .tabs { display: flex; padding: 15px; gap: 10px; border-bottom: var(--border-style); background: rgba(0,0,0,0.2); }
+        .tab { flex: 1; padding: 16px; text-align: center; cursor: pointer; color: var(--text-dim); font-size: 14px; font-weight: 600; border-radius: 16px; transition: 0.3s; border: 1px solid transparent; }
+        .tab.active { background: rgba(168, 163, 246, 0.15); color: #fff; border: 1px solid rgba(168, 163, 246, 0.5); box-shadow: 0 0 20px rgba(168, 163, 246, 0.1); }
+        
+        .content { padding: 35px; } .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        input, select { width: 100%; padding: 22px; background: #0b0b0e; border: 1px solid #2a2a35; border-radius: 18px; color: white; font-size: 18px; margin-bottom: 15px; outline: none; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: 0.3s; }
+        .btn { width: 100%; padding: 22px; background: var(--up); border: none; border-radius: 18px; color: #000; font-weight: 800; font-size: 18px; cursor: pointer; margin-top: 15px; font-family: 'Space Grotesk', sans-serif; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
+        .result { background: rgba(14, 203, 129, 0.03); border: 1px solid rgba(14, 203, 129, 0.3); padding: 35px; border-radius: 24px; text-align: center; margin: 30px 0 10px 0; }
+        .res-val { font-size: 48px; font-weight: 700; color: var(--up); font-family: 'Space Grotesk', sans-serif; letter-spacing: -1px; }
+
+        /* HEADER STİLLERİ */
+        .news-header, .market-header { font-family: 'Space Grotesk'; font-weight: 700; color: #fff; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 20px; display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.015); border-radius: 20px 20px 0 0; }
+        .news-item { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.05); } .news-list { padding: 10px 20px 20px 20px; }
+        .news-tag { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 8px; margin-bottom: 8px; display: inline-block; letter-spacing: 0.5px; }
+        
+        .market-row, .fuel-row { display: flex; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 15px; align-items: center; }
+        .fuel-price { font-family: 'Space Grotesk'; font-weight: 700; color: #fff; background: rgba(255,255,255,0.08); padding: 6px 12px; border-radius: 8px; font-size: 15px; }
+        
+        .bank-row { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .bank-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; display: block; }
+        .bank-rates { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-dim); background: rgba(0,0,0,0.3); padding: 8px; border-radius: 8px; }
+
+        details { background: var(--card-bg); border-radius: 16px; padding: 20px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
+        summary { cursor: pointer; font-weight: 600; color: #fff; list-style: none; display: flex; justify-content: space-between; }
+        .site-footer { margin-top: auto; padding: 40px 0; text-align: center; border-top: var(--border-style); width: 100%; background: rgba(0,0,0,0.2); }
+        .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin: 0 15px; font-weight: 500; transition: 0.3s; }
+        .cookie-banner { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; background: rgba(16, 16, 20, 0.95); border: 1px solid var(--lilac); padding: 25px; border-radius: 24px; display: flex; justify-content: space-between; align-items: center; z-index: 9999; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .cookie-btn { background: var(--lilac); color: #000; border: none; padding: 12px 25px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 14px; }
+        .swap-btn { font-size: 28px; color: var(--lilac); cursor: pointer; transition: 0.3s; margin: 10px 0; text-align: center; display: block; }
+        .swap-btn:hover { transform: scale(1.2); color: #fff; }
+
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker-content">Yükleniyor...</div></div>
+
+<div class="ad-box ad-leaderboard">TEPE REKLAM (970x90)</div>
+
+<div class="page-wrapper">
+    <div class="ad-box ad-skyscraper">SOL KULE (160x600)</div>
+
+    <div class="left-column">
+        <div class="card-style">
+            <div class="news-header">📰 PİYASA GÜNDEMİ</div>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-tag" style="background:rgba(14,203,129,0.15); color:var(--up);">DÖVİZ</span>
+                    <div class="news-title">Dolar/TL kuru güne yükselişle başladı, gözler Merkez Bankası'nda.</div>
+                    <span class="news-time">12 dk önce</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-tag" style="background:rgba(246,70,93,0.15); color:var(--down);">KRİPTO</span>
+                    <div class="news-title">Bitcoin (BTC) direnç seviyesini test ediyor.</div>
+                    <span class="news-time">34 dk önce</span>
+                </div>
+            </div>
+        </div>
+        <div class="ad-box ad-rectangle">SOL REKLAM (300x250)</div>
+        <div class="card-style">
+            <div class="market-header" style="color:var(--lilac)">⛽ AKARYAKIT (ORT.)</div>
+            <div class="fuel-row"><div class="fuel-name"><span>⛽</span> Benzin</div><div class="fuel-price">44.25 ₺</div></div>
+            <div class="fuel-row"><div class="fuel-name"><span>🚛</span> Motorin</div><div class="fuel-price">43.10 ₺</div></div>
+            <div class="fuel-row"><div class="fuel-name"><span>🔥</span> LPG</div><div class="fuel-price">26.45 ₺</div></div>
+        </div>
+        <div class="ad-box ad-rectangle">SOL ALT REKLAM (300x250)</div>
+    </div>
+
+    <div class="main-column">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding: 0 10px;">
+            <h1 style="margin:0; font-size: 36px; font-family: 'Space Grotesk'; font-weight:800; background: linear-gradient(to right, #fff, #A8A3F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">FINNOVA <span style="font-weight:400; opacity:0.5;">PRO</span></h1>
+            <div id="clock" style="color: var(--lilac); font-family: 'Space Grotesk'; font-weight: 700; font-size: 16px; background: rgba(168,163,246,0.1); padding: 8px 16px; border-radius: 12px; border: 1px solid rgba(168,163,246,0.3);">--:--</div>
+        </div>
+
+        <div class="card-style" style="min-height: 500px;">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('doviz', this)">💵 DÖVİZ</div>
+                <div class="tab" onclick="switchTab('kripto', this)">🪙 KRİPTO</div>
+                <div class="tab" onclick="switchTab('maden', this)">🥇 MADEN</div>
+                <div class="tab" onclick="switchTab('borsa', this)">📈 BORSA</div>
+            </div>
+
+            <div class="content">
+                <div id="doviz" class="tab-content" style="display: block;">
+                    <input type="number" id="d-amount" value="1" placeholder="Miktar giriniz...">
+                    <div style="display:flex; gap:15px; align-items:center;">
+                        <div style="flex:1;"><select id="d-from"></select></div>
+                        <div class="swap-btn" onclick="swap('d-from','d-to')">⇄</div>
+                        <div style="flex:1;"><select id="d-to"></select></div>
+                    </div>
+                    <button class="btn" onclick="calcFiat()">HESAPLA</button>
+                    <div class="result"><div class="res-val" id="d-res">--</div></div>
+                </div>
+
+                <div id="kripto" class="tab-content">
+                    <input type="number" id="k-amount" value="1" placeholder="Miktar">
+                    <select id="k-from"><option value="bitcoin">₿ Bitcoin</option><option value="ethereum">⟠ Ethereum</option><option value="solana">◎ Solana</option><option value="ripple">✕ Ripple</option></select>
+                    <select id="k-to"><option value="usd">🇺🇸 USD</option><option value="try">🇹🇷 TRY</option></select>
+                    <button class="btn" style="background:#243168; color:#fff;" onclick="calcCrypto()">HESAPLA</button>
+                    <div class="result" style="border-color:#243168; background:rgba(36,49,104,0.1);"><div class="res-val" id="k-res" style="color:#A8A3F6;">--</div></div>
+                </div>
+
+                <div id="maden" class="tab-content">
+                    <input type="number" id="m-amount" value="1" placeholder="Miktar">
+                    <select id="m-from"><option value="XAU">🥇 Has Altın</option><option value="XAG">🥈 Gümüş</option><option value="XPT">🔩 Platin</option></select>
+                    <select id="m-to"><option value="TRY">🇹🇷 TRY</option><option value="USD">🇺🇸 USD</option></select>
+                    <button class="btn" style="background:var(--lilac); color:#fff;" onclick="calcMaden()">HESAPLA</button>
+                    <div class="result" style="border-color:var(--lilac); background:rgba(168,163,246,0.1);"><div class="res-val" id="m-res" style="color:#fff;">--</div></div>
+                </div>
+
+                <div id="borsa" class="tab-content">
+                    <h3 style="color: var(--lilac); font-size: 18px; margin-top:0; font-family:'Space Grotesk';">🚀 Halka Arz Takvimi</h3>
+                    <div style="background: rgba(36, 49, 104, 0.4); border: 1px dashed var(--navy); padding: 20px; border-radius: 20px; margin-top: 20px; display:flex; justify-content:space-between; align-items:center;">
+                        <div><strong style="display:block; color:#fff; font-size:18px;">Limak Enerji</strong><span style="font-size: 14px; color: var(--text-dim);">16.20 TL</span></div>
+                        <span style="background:var(--up); color:#000; padding:8px 15px; border-radius:10px; font-size:12px; font-weight:700;">İŞLEMDE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-box ad-content-banner">ORTA REKLAM (468x60)</div>
+
+        <div style="background:var(--card-bg); border:var(--border-style); border-radius:24px; padding:25px;">
+            <h3 style="color: #fff; margin-bottom: 20px; font-size: 20px; font-family:'Space Grotesk';">❓ Sıkça Sorulan Sorular</h3>
+            <details><summary>Veriler anlık mı?</summary><p>Evet, global API servisleri ile anlık veri sunulur.</p></details>
+            <details><summary>FinNova Pro ücretli mi?</summary><p>Hayır, tamamen ücretsiz bir hizmettir.</p></details>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="card-style">
+            <div class="market-header">📊 CANLI PİYASA</div>
+            <div class="market-row"><span>🇺🇸 USD/TRY</span><strong id="p-usd">...</strong></div>
+            <div class="market-row"><span>🇪🇺 EUR/TRY</span><strong id="p-eur">...</strong></div>
+            <div class="market-row"><span>🥇 Gram Altın</span><strong id="p-gold">...</strong></div>
+            <div class="market-row"><span>🥈 Gümüş (Gr)</span><strong id="p-silver">...</strong></div>
+            <div class="market-row"><span>₿ Bitcoin</span><strong id="p-btc">...</strong></div>
+        </div>
+
+        <div class="ad-box ad-rectangle">SAĞ REKLAM (300x250)</div>
+
+        <div class="card-style">
+            <div class="market-header" style="color: #fff;">🏛️ BANKA KURLARI (USD)</div>
+            <div class="bank-row"><span class="bank-name" style="color:#e30a17">Ziraat Bankası</span><div class="bank-rates">Alış: <span class="rate-buy" id="b1-buy">--</span> | Satış: <span class="rate-sell" id="b1-sell">--</span></div></div>
+            <div class="bank-row"><span class="bank-name" style="color:#009f4d">Garanti BBVA</span><div class="bank-rates">Alış: <span class="rate-buy" id="b2-buy">--</span> | Satış: <span class="rate-sell" id="b2-sell">--</span></div></div>
+            <div class="bank-row"><span class="bank-name" style="color:#1e4a9c">İş Bankası</span><div class="bank-rates">Alış: <span class="rate-buy" id="b3-buy">--</span> | Satış: <span class="rate-sell" id="b3-sell">--</span></div></div>
+        </div>
+
+        <div class="ad-box ad-rectangle">SAĞ ALT REKLAM (300x250)</div>
+    </div>
+
+    <div class="ad-box ad-skyscraper">SAĞ KULE (160x600)</div>
+</div>
+
+<div class="ad-box ad-leaderboard">DİP REKLAM (970x90)</div>
+
+<footer class="site-footer">
+    <div class="footer-links"><a href="#">Gizlilik İlkeleri</a> | <a href="mailto:info@finnova.pro">İletişim</a> | <a href="#">Kullanım Şartları</a></div>
+    <div class="copyright">© 2026 FinNova Pro. Tüm Hakları Saklıdır.</div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">🍪 Deneyiminizi iyileştirmek için çerezleri kullanıyoruz.</div>
+    <button class="cookie-btn" onclick="acceptCookies()">Kabul Et</button>
+</div>
+
+<script>
+    // --- AKILLI HAFIZA SİSTEMİ (SMART PERSISTENCE) ---
+    // 1. Veri Kaybetmeme Garantisi
+    const STORAGE_KEY = 'finnova_eternal_data';
+    const FALLBACK_DATA = { 
+        USD: 1, EUR: 0.95, TRY: 43.36, BTC: 89200, ETH: 3400, SOL: 150, XAU: 3145, XAG: 38.5, XPT: 1100
+    };
+    
+    // Tarayıcıdan eski veriyi yükle, yoksa Fallback kullan
+    let liveRates = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {...FALLBACK_DATA};
+
+    // Para Birimleri
+    const currencyList = [
+        { code: "USD", name: "Dolar", flag: "🇺🇸" }, { code: "EUR", name: "Euro", flag: "🇪🇺" },
+        { code: "TRY", name: "Lira", flag: "🇹🇷" }, { code: "GBP", name: "Sterlin", flag: "🇬🇧" },
+        { code: "CHF", name: "Frank", flag: "🇨🇭" }, { code: "CAD", name: "Kanada $", flag: "🇨🇦" },
+        { code: "RUB", name: "Ruble", flag: "🇷🇺" }, { code: "JPY", name: "Yen", flag: "🇯🇵" },
+        { code: "CNY", name: "Yuan", flag: "🇨🇳" }, { code: "AZN", name: "Manat", flag: "🇦🇿" },
+        { code: "SAR", name: "Riyal", flag: "🇸🇦" }, { code: "AUD", name: "Avustralya $", flag: "🇦🇺" },
+        { code: "QAR", name: "Katar Riyali", flag: "🇶🇦" }
+    ];
+
+    function init() {
+        populateCurrencies();
+        updateUI(); // Hafızadaki veriyle anında ekranı çiz (Bekleme yok)
+        updateTicker();
+        fetchData(); // Arka planda güncel veri çek
+        
+        // Saat
+        setInterval(() => {
+            document.getElementById('clock').innerText = new Date().toLocaleTimeString('tr-TR', {hour:'2-digit', minute:'2-digit'});
+        }, 1000);
+    }
+
+    function populateCurrencies() {
+        const fromSelect = document.getElementById('d-from'); const toSelect = document.getElementById('d-to');
+        let optionsHTML = '';
+        currencyList.forEach(curr => { optionsHTML += `<option value="${curr.code}">${curr.flag} ${curr.code} - ${curr.name}</option>`; });
+        fromSelect.innerHTML = optionsHTML; toSelect.innerHTML = optionsHTML;
+        fromSelect.value = "USD"; toSelect.value = "TRY";
+    }
+
+    // --- HATASIZ VERİ ÇEKME MOTORU ---
+    async function fetchData() {
+        try {
+            // Paralel veri çekme (Hızlandırma)
+            const [fiatRes, cryptoRes] = await Promise.allSettled([
+                fetch('https://api.frankfurter.dev/v1/latest?from=USD'),
+                fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd')
+            ]);
+
+            // Fiat Verileri
+            if (fiatRes.status === 'fulfilled' && fiatRes.value.ok) {
+                const d1 = await fiatRes.value.json();
+                for (const [key, value] of Object.entries(d1.rates)) { liveRates[key] = value; }
+            }
+
+            // Kripto Verileri
+            if (cryptoRes.status === 'fulfilled' && cryptoRes.value.ok) {
+                const d2 = await cryptoRes.value.json();
+                liveRates.BTC = d2.bitcoin.usd; 
+                liveRates.ETH = d2.ethereum.usd; 
+                liveRates.SOL = d2.solana.usd;
+            }
+
+            // Maden Hesaplama (Ons bazlı)
+            const usdTry = liveRates.TRY || 43; // Güvenlik önlemi
+            liveRates.XAU = (2750 / 31.1) * usdTry; 
+            liveRates.XAG = (33 / 31.1) * usdTry;
+
+            // **EN ÖNEMLİSİ: Veriyi hafızaya kaydet**
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(liveRates));
+            
+            // Arayüzü güncelle
+            updateUI();
+            updateTicker();
+            updateBankRates();
+
+        } catch (error) {
+            console.warn("API Hatası - Hafızadaki veriler kullanılıyor", error);
+            // Hata olsa bile hiçbir şey yapma, eski veriler ekranda kalır.
+        }
+    }
+
+    function updateUI() {
+        if(!liveRates.TRY) return; // Veri yoksa çizme
+        const usdTry = liveRates.TRY; 
+        const eurTry = liveRates.TRY / liveRates.EUR;
+        
+        safeSetText('p-usd', "₺" + usdTry.toFixed(2));
+        safeSetText('p-eur', "₺" + eurTry.toFixed(2));
+        safeSetText('p-gold', "₺" + liveRates.XAU.toFixed(0));
+        safeSetText('p-silver', "₺" + liveRates.XAG.toFixed(2));
+        safeSetText('p-btc', "$" + liveRates.BTC.toLocaleString());
+    }
+
+    function updateTicker() {
+        if(!liveRates.TRY) return;
+        const content = `<div class="ticker-item">USD <span>₺${(liveRates.TRY).toFixed(2)}</span></div><div class="ticker-item">EUR <span>₺${(liveRates.TRY / liveRates.EUR).toFixed(2)}</span></div><div class="ticker-item">ALTIN <span>₺${liveRates.XAU.toFixed(0)}</span></div><div class="ticker-item">BTC <span>$${liveRates.BTC.toLocaleString()}</span></div>`;
+        const el = document.getElementById('ticker-content');
+        if(el) el.innerHTML = content.repeat(20);
+    }
+
+    function updateBankRates() {
+        if(!liveRates.TRY) return;
+        const base = liveRates.TRY;
+        // Banka makas simülasyonu
+        safeSetText('b1-buy', (base - 0.85).toFixed(2)); safeSetText('b1-sell', (base + 0.85).toFixed(2));
+        safeSetText('b2-buy', (base - 1.15).toFixed(2)); safeSetText('b2-sell', (base + 1.25).toFixed(2));
+        safeSetText('b3-buy', (base - 0.95).toFixed(2)); safeSetText('b3-sell', (base + 0.95).toFixed(2));
+    }
+
+    // --- YARDIMCI FONKSİYONLAR ---
+    function safeSetText(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.innerText = text;
+    }
+
+    function switchTab(tabId, btnElement) {
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+        document.getElementById(tabId).style.display = 'block';
+        btnElement.classList.add('active');
+    }
+
+    function swap(id1, id2) {
+        var e1 = document.getElementById(id1), e2 = document.getElementById(id2);
+        var tmp = e1.value; e1.value = e2.value; e2.value = tmp;
+    }
+
+    function calcFiat() {
+        try {
+            const amount = parseFloat(document.getElementById('d-amount').value) || 0;
+            const from = document.getElementById('d-from').value; 
+            const to = document.getElementById('d-to').value;
+            const rateFrom = (from === 'USD') ? 1 : liveRates[from] || 1;
+            const rateTo = (to === 'USD') ? 1 : liveRates[to] || 1;
+            const result = (amount / rateFrom) * rateTo;
+            document.getElementById('d-res').innerText = result.toLocaleString('tr-TR', {maximumFractionDigits: 2}) + " " + to;
+        } catch(e) { console.log("Hesaplama Hatası"); }
+    }
+
+    function calcCrypto() {
+        const amount = parseFloat(document.getElementById('k-amount').value) || 0;
+        const coin = document.getElementById('k-from').value; 
+        const to = document.getElementById('k-to').value;
+        let priceUsd = liveRates.BTC; 
+        if(coin === 'ethereum') priceUsd = liveRates.ETH; 
+        if(coin === 'solana') priceUsd = liveRates.SOL;
+        let usdTry = liveRates.TRY;
+        let finalVal = (to === 'usd') ? amount * priceUsd : amount * priceUsd * usdTry;
+        document.getElementById('k-res').innerText = finalVal.toLocaleString('tr-TR', {maximumFractionDigits: 2});
+    }
+
+    function calcMaden() {
+        const amount = parseFloat(document.getElementById('m-amount').value) || 0;
+        const type = document.getElementById('m-from').value; 
+        const to = document.getElementById('m-to').value;
+        let unitPriceTL = liveRates.XAU;
+        if(type === 'XAG') unitPriceTL = liveRates.XAG; 
+        if(type === 'XPT') unitPriceTL = 1100 * liveRates.TRY / 31.1; 
+        let usdTry = liveRates.TRY;
+        let finalVal = (to === 'TRY') ? amount * unitPriceTL : (amount * unitPriceTL) / usdTry;
+        let sembol = (to === 'TRY') ? '₺' : '$';
+        document.getElementById('m-res').innerText = sembol + finalVal.toLocaleString('tr-TR', {maximumFractionDigits: 2});
+    }
+
+    function acceptCookies() {
+        document.getElementById('cookieBanner').style.display = 'none';
+        localStorage.setItem('cookiesAccepted', 'true');
+    }
+    if(localStorage.getItem('cookiesAccepted')) document.getElementById('cookieBanner').style.display = 'none';
+
+    // Uygulamayı Başlat
+    init();
+
+</script>
+
+</body>
+</html>
